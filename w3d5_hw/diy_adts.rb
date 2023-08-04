@@ -44,7 +44,6 @@ class Map
     def set(key,value)
         key_include = false
         pair_index = nil
-        # debugger
         @map.each_with_index do |pair, inx| 
             key_include = true if pair[0] == key
             pair_index = inx if key_include && pair_index == nil
@@ -59,19 +58,21 @@ class Map
     end
 
     def get(key)
-        @map.each_with_index do |pair, i|
+        @map.each do |pair|
             return pair if pair[0] == key
         end
         return nil
     end
+
+    def delete(key)
+        @map.each_with_index do |pair, i|
+            @map.delete_at(i) if pair[0] == key
+        end
+    end
+
+    def show
+        @map
+    end
 end
 
-m = Map.new
-m.set(1,1)
-m.set(2,2)
-m.set(1,4)
-p m
-p m.get(2)
-p m.get(1)
-p m.get(0)
 

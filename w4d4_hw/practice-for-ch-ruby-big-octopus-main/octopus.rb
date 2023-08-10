@@ -31,10 +31,15 @@ def quick_sort(array)
     result = quick_sort(left) + [first] + quick_sort(right) 
 end  
 
-def dom_ocot(array)
+#Use quick sort on this to make it O(n * log * n)
+def dom_octo(array)
     return array.last
 end
 
+#O(n)
+def clever_octo(array)
+    max_word = ""
+    array.each {|ele| max_word = ele if ele.length > max_word.length}
+    max_word
+end     
 
-p dom_ocot(quick_sort(['fish', 'fiiish', 'fiiiiish', 'fiiiish', 'fffish', 'ffiiiiisshh', 'fsh', 
-    'fiiiissshhhhhh']))
